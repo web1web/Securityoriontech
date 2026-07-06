@@ -3,124 +3,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Security Orión Tech SAS | Seguridad Electrónica</title>
+    <title>Security Orión Tech SAS | Seguridad Electrónica y Soporte Técnico</title>
+    
+    <!-- Iconos FontAwesome para Redes Sociales -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
+        /* Variables de Color basadas en el Logotipo */
         :root {
-            --bg-color: #0b0c10;
-            --card-bg: #1f2833;
-            --text-color: #c5c6c7;
-            --accent-color: #1a936f; /* Verde esmeralda alineado al logo */
-            --silver-color: #66fcf1;
-            --white: #ffffff;
+            --bg-principal: #0a0c10;
+            --bg-tarjetas: #141822;
+            --verde-orion: #168f65;
+            --verde-brillante: #1ed78d;
+            --plata-texto: #cbd5e1;
+            --blanco: #ffffff;
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-principal);
+            color: var(--plata-texto);
+            line-height: 1.6;
+        }
+
+        /* Encabezado / Hero */
         header {
-            background-color: rgba(11, 12, 16, 0.95);
-            padding: 20px;
+            background: linear-gradient(180deg, rgba(20, 24, 34, 0.95) 0%, var(--bg-principal) 100%);
+            padding: 40px 20px;
             text-align: center;
-            border-bottom: 2px solid var(--accent-color);
+            border-bottom: 3px solid var(--verde-orion);
+        }
+
+        .logo-container {
+            margin-bottom: 15px;
         }
 
         .logo-container img {
-            max-width: 180px;
+            max-width: 220px;
             height: auto;
-            border-radius: 8px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(22, 143, 101, 0.2);
         }
 
         h1 {
-            color: var(--white);
-            margin: 10px 0 5px 0;
-            font-size: 1.8rem;
+            color: var(--blanco);
+            font-size: 2.2rem;
             letter-spacing: 1px;
+            margin-bottom: 5px;
         }
 
         .slogan {
-            color: var(--accent-color);
+            color: var(--verde-brillante);
+            font-size: 1.1rem;
             font-style: italic;
-            font-size: 1rem;
-            margin-bottom: 15px;
-            font-weight: bold;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
         }
 
+        /* Contenedor Principal */
         .container {
-            max-width: 1200px;
-            margin: 30px auto;
+            max-width: 1100px;
+            margin: 40px auto;
             padding: 0 20px;
         }
 
-        .services-grid {
+        .seccion-titulo {
+            text-align: center;
+            color: var(--blanco);
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+            position: relative;
+        }
+
+        .seccion-titulo::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--verde-orion);
+            margin: 10px auto 0 auto;
+        }
+
+        /* Rejilla de Servicios */
+        .servicios-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
+            gap: 25px;
+            margin-bottom: 50px;
         }
 
-        .service-card {
-            background-color: var(--card-bg);
-            padding: 25px;
-            border-radius: 10px;
-            border-left: 4px solid var(--accent-color);
-            transition: transform 0.3s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5s);
-        }
-
-        .service-card h3 {
-            color: var(--white);
-            margin-top: 0;
-        }
-
-        footer {
-            background-color: #000;
+        .tarjeta {
+            background-color: var(--bg-tarjetas);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #1f2637;
+            border-top: 4px solid var(--verde-orion);
+            transition: all 0.3s ease;
             text-align: center;
-            padding: 20px;
-            margin-top: 50px;
-            border-top: 1px solid #333;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(22, 143, 101, 0.15);
+            border-color: var(--verde-brillante);
+        }
+
+        .tarjeta-icono {
+            font-size: 2.5rem;
+            color: var(--verde-brillante);
+            margin-bottom: 15px;
+        }
+
+        .tarjeta h3 {
+            color: var(--blanco);
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+        }
+
+        /* Botones de Contacto Rápido */
+        .contacto-zona {
+            background-color: var(--bg-tarjetas);
+            padding: 40px 20px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #1f2637;
+        }
+
+        .botones-sociales {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            color: var(--blanco);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-whatsapp {
+            background-color: #25d366;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #20ba5a;
+        }
+
+        .btn-tiktok {
+            background-color: #000000;
+            border: 1px solid #333;
+        }
+
+        .btn-catalogo {
+            background-color: var(--verde-orion);
+        }
+
+        .btn-catalogo:hover {
+            background-color: var(--verde-brillante);
+            color: var(--bg-principal);
+        }
+
+        /* Pie de Página */
+        footer {
+            background-color: #050608;
+            text-align: center;
+            padding: 25px;
+            margin-top: 60px;
+            border-top: 1px solid #1f2637;
             font-size: 0.9rem;
+        }
+
+        footer p {
+            color: #64748b;
         }
     </style>
 </head>
 <body>
 
+    <!-- Encabezado con Logotipo e Identidad -->
     <header>
         <div class="logo-container">
-            <!-- Referencia exacta a la imagen del logo proporcionada -->
-            <img src="1000176149.jpg" alt="Logo Security Orión Tech SAS">
+            <!-- Nombre de archivo actualizado a logo orion.png -->
+            <img src="logo orion.png" alt="Logotipo Security Orión Tech SAS">
         </div>
         <h1>Security Orión Tech SAS</h1>
         <div class="slogan">"Seguridad que te da libertad"</div>
     </header>
 
     <div class="container">
-        <h2>Nuestros Servicios Profesionales</h2>
-        <p>Soluciones integrales en ingeniería de seguridad y soporte técnico especializado.</p>
         
-        <div class="services-grid">
-            <div class="service-card">
+        <!-- Sección de Servicios -->
+        <h2 class="seccion-titulo">Servicios Especializados</h2>
+        <div class="servicios-grid">
+            
+            <div class="tarjeta">
+                <div class="tarjeta-icono"><i class="fa-solid fa-video"></i></div>
                 <h3>Sistemas de CCTV</h3>
-                <p>Instalación, configuración y mantenimiento de circuitos cerrados de televisión de alta definición.</p>
+                <p>Instalación, configuración y mantenimiento de circuitos cerrados de televisión (DVR/XVR) de marcas líderes con monitoreo remoto en tiempo real.</p>
             </div>
-            <div class="service-card">
-                <h3>Alarmas y Seguridad Perimetral</h3>
-                <p>Sistemas de intrusión residenciales y comerciales, cercas eléctricas y protección activa.</p>
+
+            <div class="tarjeta">
+                <div class="tarjeta-icono"><i class="fa-solid fa-shield-halved"></i></div>
+                <h3>Alarmas e Intrusión</h3>
+                <p>Programación avanzada para la protección perimetral, cercas eléctricas, alarmas residenciales y soluciones comunitarias.</p>
             </div>
-            <div class="service-card">
-                <h3>Soporte Técnico Especializado</h3>
-                <p>Diagnóstico, mantenimiento correctivo y preventivo de equipamiento electrónico.</p>
+
+            <div class="tarjeta">
+                <div class="tarjeta-icono"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                <h3>Soporte y Mantenimiento</h3>
+                <p>Diagnóstico técnico preciso y reparación de hardware en equipamiento electrónico crítico, sistemas UPS y sistemas de protección activa.</p>
+            </div>
+
+        </div>
+
+        <!-- Zona de Llamado a la Acción / Contacto -->
+        <div class="contacto-zona">
+            <h2 class="seccion-titulo">¿Necesitas un presupuesto o soporte técnico?</h2>
+            <p>Contáctanos directamente hoy mismo. Atendemos requerimientos de soporte e instalaciones de forma ágil y profesional.</p>
+            
+            <div class="botones-sociales">
+                <!-- Enlace de WhatsApp directo con mensaje personalizado -->
+                <a href="https://wa.me/593986036838?text=Hola%20Security%20Orión%20Tech%20SAS,%20solicito%20asistencia%20o%20cotización" class="btn btn-whatsapp" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp Técnico
+                </a>
+                
+                <!-- Enlace a tu perfil o catálogo actualizado -->
+                <a href="https://www.tiktok.com/@securityorion" class="btn btn-tiktok" target="_blank">
+                    <i class="fa-brands fa-tiktok"></i> TikTok
+                </a>
+
+                <!-- Apunta directo al catálogo digital si lo integras en GitHub -->
+                <a href="https://securityorion.github.io/catalogo" class="btn btn-catalogo" target="_blank">
+                    <i class="fa-solid fa-book-open"></i> Ver Catálogo
+                </a>
             </div>
         </div>
+
     </div>
 
+    <!-- Derechos de Autor -->
     <footer>
         <p>&copy; 2026 Security Orión Tech SAS. Todos los derechos reservados.</p>
     </footer>
