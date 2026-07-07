@@ -9,13 +9,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* Variables de Color basadas en el Logotipo */
+        /* Variables de Color Adaptadas a Fondo Claro */
         :root {
-            --bg-principal: #0a0c10;
-            --bg-tarjetas: #141822;
+            --bg-principal: #ffffff;
+            --bg-tarjetas: #f8fafc;
+            --border-color: #e2e8f0;
             --verde-orion: #168f65;
             --verde-brillante: #1ed78d;
-            --plata-texto: #cbd5e1;
+            --texto-oscuro: #1e293b;
+            --texto-mutado: #64748b;
             --blanco: #ffffff;
         }
 
@@ -28,13 +30,13 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg-principal);
-            color: var(--plata-texto);
+            color: var(--texto-oscuro);
             line-height: 1.6;
         }
 
         /* Encabezado / Hero */
         header {
-            background: linear-gradient(180deg, rgba(20, 24, 34, 0.95) 0%, var(--bg-principal) 100%);
+            background: linear-gradient(180deg, #f1f5f9 0%, var(--bg-principal) 100%);
             padding: 40px 20px;
             text-align: center;
             border-bottom: 3px solid var(--verde-orion);
@@ -45,52 +47,39 @@
         }
 
         .logo-container img {
-            max-width: 220px;
+            max-width: 100%;
+            width: 200px;
             height: auto;
             border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(22, 143, 101, 0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
-            color: var(--blanco);
+            color: var(--texto-oscuro);
             font-size: 2.2rem;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             margin-bottom: 5px;
         }
 
         .slogan {
-            color: var(--verde-brillante);
+            color: var(--verde-orion);
             font-size: 1.1rem;
             font-style: italic;
             font-weight: 600;
             letter-spacing: 0.5px;
-            margin-bottom: 20px;
-        }
-
-        /* Contador de Visitas */
-        .contador-visitas {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background-color: rgba(22, 143, 101, 0.15);
-            border: 1px solid var(--verde-orion);
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            color: var(--verde-brillante);
-            margin-top: 10px;
+            margin-bottom: 10px;
         }
 
         /* Contenedor Principal */
         .container {
             max-width: 1100px;
-            margin: 40px auto;
+            margin: 20px auto;
             padding: 0 20px;
         }
 
         .seccion-titulo {
             text-align: center;
-            color: var(--blanco);
+            color: var(--texto-oscuro);
             margin: 40px 0 25px 0;
             font-size: 1.8rem;
             position: relative;
@@ -105,7 +94,7 @@
             margin: 10px auto 0 auto;
         }
 
-        /* Rejilla de Servicios */
+        /* Rejilla de Servicios Adaptable (Grid) */
         .servicios-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -117,28 +106,33 @@
             background-color: var(--bg-tarjetas);
             padding: 30px;
             border-radius: 12px;
-            border: 1px solid #1f2637;
+            border: 1px solid var(--border-color);
             border-top: 4px solid var(--verde-orion);
             transition: all 0.3s ease;
             text-align: center;
         }
 
         .tarjeta:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 20px rgba(22, 143, 101, 0.15);
-            border-color: var(--verde-brillante);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            border-color: var(--verde-orion);
         }
 
         .tarjeta-icono {
             font-size: 2.5rem;
-            color: var(--verde-brillante);
+            color: var(--verde-orion);
             margin-bottom: 15px;
         }
 
         .tarjeta h3 {
-            color: var(--blanco);
+            color: var(--texto-oscuro);
             margin-bottom: 12px;
             font-size: 1.3rem;
+        }
+
+        .tarjeta p {
+            color: var(--texto-mutado);
+            font-size: 0.95rem;
         }
 
         /* Zona de Contacto */
@@ -147,8 +141,12 @@
             padding: 40px 20px;
             border-radius: 12px;
             text-align: center;
-            border: 1px solid #1f2637;
+            border: 1px solid var(--border-color);
             margin-top: 50px;
+        }
+
+        .contacto-zona p {
+            color: var(--texto-mutado);
         }
 
         /* Información de Contacto */
@@ -163,22 +161,24 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
+            color: var(--texto-oscuro);
         }
 
         .info-contacto i {
-            color: var(--verde-brillante);
+            color: var(--verde-orion);
         }
 
         .info-contacto a {
-            color: var(--blanco);
+            color: var(--verde-orion);
             text-decoration: none;
-            transition: color 0.2s ease;
+            font-weight: bold;
         }
 
         .info-contacto a:hover {
-            color: var(--verde-brillante);
+            text-decoration: underline;
         }
 
+        /* Botones de Acción Flexibles */
         .botones-sociales {
             display: flex;
             justify-content: center;
@@ -196,48 +196,103 @@
             font-weight: bold;
             text-decoration: none;
             color: var(--blanco);
-            transition: transform 0.2s ease, background-color 0.2s ease;
+            transition: transform 0.2s ease, filter 0.2s ease;
             font-size: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
 
         .btn:hover {
-            transform: scale(1.05);
+            transform: scale(1.03);
+            filter: brightness(0.95);
         }
 
         .btn-whatsapp {
             background-color: #25d366;
         }
 
-        .btn-whatsapp:hover {
-            background-color: #20ba5a;
-        }
-
         .btn-tiktok {
             background-color: #000000;
-            border: 1px solid #333;
         }
 
         .btn-catalogo {
             background-color: var(--verde-orion);
         }
 
-        .btn-catalogo:hover {
-            background-color: var(--verde-brillante);
-            color: var(--bg-principal);
-        }
-
-        /* Pie de Página */
+        /* Pie de Página con Contador Integrado */
         footer {
-            background-color: #050608;
+            background-color: #f1f5f9;
             text-align: center;
-            padding: 25px;
+            padding: 30px 20px;
             margin-top: 60px;
-            border-top: 1px solid #1f2637;
+            border-top: 1px solid var(--border-color);
             font-size: 0.9rem;
         }
 
         footer p {
-            color: #64748b;
+            color: var(--texto-mutado);
+            margin-bottom: 10px;
+        }
+
+        .contador-visitas {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--texto-oscuro);
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .contador-visitas i {
+            color: var(--verde-orion);
+        }
+
+        /* --- MEDIA QUERIES (OPTIMIZACIÓN MÓVIL Y TABLETS) --- */
+        @media (max-width: 768px) {
+            header {
+                padding: 30px 15px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .slogan {
+                font-size: 1rem;
+            }
+
+            .seccion-titulo {
+                font-size: 1.5rem;
+            }
+
+            .tarjeta {
+                padding: 20px;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+                padding: 14px 20px;
+            }
+
+            .botones-sociales {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            .logo-container img {
+                width: 160px;
+            }
         }
     </style>
 </head>
@@ -250,11 +305,6 @@
         </div>
         <h1>Security Orión Tech SAS</h1>
         <div class="slogan">"Seguridad que te da libertad"</div>
-        
-        <!-- Elemento visual del Contador de Visitas -->
-        <div class="contador-visitas">
-            <i class="fa-solid fa-eye"></i> Visitas: <span id="visit-count">Cargando...</span>
-        </div>
     </header>
 
     <div class="container">
@@ -318,17 +368,15 @@
             </div>
             
             <div class="botones-sociales">
-                <!-- Enlace de WhatsApp directo con mensaje personalizado -->
                 <a href="https://wa.me/593986036838?text=Hola%20Security%20Orión%20Tech%20SAS,%20solicito%20asistencia%20o%20cotización" class="btn btn-whatsapp" target="_blank">
                     <i class="fa-brands fa-whatsapp"></i> WhatsApp Técnico
                 </a>
                 
-                <!-- Enlace de TikTok -->
                 <a href="https://www.tiktok.com/@security.orion.te" class="btn btn-tiktok" target="_blank">
                     <i class="fa-brands fa-tiktok"></i> TikTok
                 </a>
 
-                <!-- Enlace de Catálogo -->
+                <!-- Nota: Reemplaza TU_USUARIO_GITHUB y NOMBRE_REPOSITORIO con tus datos reales -->
                 <a href="https://TU_USUARIO_GITHUB.github.io/NOMBRE_REPOSITORIO/catalogo.html" class="btn btn-catalogo" target="_blank">
                     <i class="fa-solid fa-book-open"></i> Ver Catálogo
                 </a>
@@ -337,9 +385,13 @@
 
     </div>
 
-    <!-- Derechos de Autor -->
+    <!-- Pie de Página con el Contador de Visitas Ubicado Abajo -->
     <footer>
         <p>&copy; 2026 Security Orión Tech SAS. Todos los derechos reservados.</p>
+        
+        <div class="contador-visitas">
+            <i class="fa-solid fa-eye"></i> Visitas a la página: <span id="visit-count">Cargando...</span>
+        </div>
     </footer>
 
     <!-- Script del Contador de Visitas Autónomo -->
