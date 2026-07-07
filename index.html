@@ -67,6 +67,20 @@
             margin-bottom: 20px;
         }
 
+        /* Contador de Visitas */
+        .contador-visitas {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: rgba(22, 143, 101, 0.15);
+            border: 1px solid var(--verde-orion);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--verde-brillante);
+            margin-top: 10px;
+        }
+
         /* Contenedor Principal */
         .container {
             max-width: 1100px;
@@ -236,11 +250,40 @@
         </div>
         <h1>Security Orión Tech SAS</h1>
         <div class="slogan">"Seguridad que te da libertad"</div>
+        
+        <!-- Elemento visual del Contador de Visitas -->
+        <div class="contador-visitas">
+            <i class="fa-solid fa-eye"></i> Visitas: <span id="visit-count">Cargando...</span>
+        </div>
     </header>
 
     <div class="container">
         
-        <!-- Bloque 1: Operaciones y Logística de Seguridad -->
+        <!-- Bloque 1: Distribución, Venta e Ingeniería Electrónica -->
+        <h2 class="seccion-titulo">Seguridad Electrónica Especializada</h2>
+        <div class="servicios-grid">
+            
+            <div class="tarjeta">
+                <div class="tarjeta-icono"><i class="fa-solid fa-cart-shopping"></i></div>
+                <h3>Distribución y Venta</h3>
+                <p>Comercialización de equipamiento tecnológico de vanguardia. Garantizamos equipos 100% nuevos de marcas líderes con el respaldo técnico que necesitas.</p>
+            </div>
+
+            <div class="tarjeta">
+                <div class="tarjeta-icono"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                <h3>Instalación Profesional</h3>
+                <p>Implementación e interconexión técnica de sistemas de CCTV, alarmas de intrusión, cercas eléctricas y barreras bajo estrictas normas de ingeniería.</p>
+            </div>
+
+            <div class="tarjeta">
+                <div class="tarjeta-icono"><i class="fa-solid fa-user-gear"></i></div>
+                <h3>Soporte Técnico</h3>
+                <p>Diagnóstico preciso, mantenimiento preventivo y correctivo de hardware crítico, garantizando la continuidad operativa de tus sistemas de protección.</p>
+            </div>
+
+        </div>
+
+        <!-- Bloque 2: Operaciones y Logística Corporativa -->
         <h2 class="seccion-titulo">Seguridad Operativa Avanzada</h2>
         <div class="servicios-grid">
             
@@ -252,38 +295,14 @@
 
             <div class="tarjeta">
                 <div class="tarjeta-icono"><i class="fa-solid fa-clock"></i></div>
-                <h3>Monitoreo 24/7</h3>
-                <p>Centro de control activo de manera ininterrumpida las 24 horas del día, los 365 días del año, vigilando tu patrimonio y reaccionando ante emergencias.</p>
+                <h3>Monitoreo 24/7 y Alertas</h3>
+                <p>Centro de control activo de manera ininterrumpida las 24 horas del día, enlazado a notificaciones instantáneas directo a tu dispositivo móvil.</p>
             </div>
 
             <div class="tarjeta">
                 <div class="tarjeta-icono"><i class="fa-solid fa-shield-cat"></i></div>
                 <h3>Rondas Disuasivas</h3>
                 <p>Patrullaje preventivo y presencia táctica en puntos críticos para mitigar riesgos, disuadir amenazas y garantizar la paz en tus instalaciones.</p>
-            </div>
-
-        </div>
-
-        <!-- Bloque 2: Soluciones Tecnológicas -->
-        <h2 class="seccion-titulo">Tecnología y Conectividad</h2>
-        <div class="servicios-grid">
-
-            <div class="tarjeta">
-                <div class="tarjeta-icono"><i class="fa-solid fa-bell-on"></i></div>
-                <h3>Notificaciones Instantáneas</h3>
-                <p>Vinculación de sistemas inteligentes que envían alertas críticas en tiempo real directo a tu dispositivo móvil ante cualquier intento de intrusión.</p>
-            </div>
-            
-            <div class="tarjeta">
-                <div class="tarjeta-icono"><i class="fa-solid fa-video"></i></div>
-                <h3>Sistemas de CCTV</h3>
-                <p>Instalación y configuración técnica avanzada de cámaras de seguridad y grabadores de video (DVR/XVR) con acceso y visualización remota.</p>
-            </div>
-
-            <div class="tarjeta">
-                <div class="tarjeta-icono"><i class="fa-solid fa-bolt"></i></div>
-                <h3>Protección Perimetral</h3>
-                <p>Implementación y mantenimiento de cercas eléctricas, alarmas de pánico y barreras de seguridad física bajo estrictas normas de ingeniería.</p>
             </div>
 
         </div>
@@ -309,9 +328,8 @@
                     <i class="fa-brands fa-tiktok"></i> TikTok
                 </a>
 
-                <!-- ENLACE DE CATÁLOGO INTERCONECTADO -->
-                <!-- Nota: Reemplaza "TU_USUARIO_GITHUB" por tu nombre real de usuario en GitHub y "NOMBRE_REPOSITORIO" por el nombre de tu proyecto -->
-                <a href="https://TU_USUARIO_GITHUB.github.io/NOMBRE_REPOSITORIO/catálogo.html" class="btn btn-catalogo" target="_blank">
+                <!-- Enlace de Catálogo -->
+                <a href="https://TU_USUARIO_GITHUB.github.io/NOMBRE_REPOSITORIO/catalogo.html" class="btn btn-catalogo" target="_blank">
                     <i class="fa-solid fa-book-open"></i> Ver Catálogo
                 </a>
             </div>
@@ -323,6 +341,14 @@
     <footer>
         <p>&copy; 2026 Security Orión Tech SAS. Todos los derechos reservados.</p>
     </footer>
+
+    <!-- Script del Contador de Visitas Autónomo -->
+    <script>
+        function cb(response) {
+            document.getElementById('visit-count').innerText = response.value;
+        }
+    </script>
+    <script async src="https://api.countapi.xyz/hit/securityoriontechsas/homepage?callback=cb"></script>
 
 </body>
 </html>
