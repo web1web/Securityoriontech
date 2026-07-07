@@ -127,7 +127,7 @@
             font-size: 1.3rem;
         }
 
-        /* Botones de Contacto Rápido */
+        /* Zona de Contacto */
         .contacto-zona {
             background-color: var(--bg-tarjetas);
             padding: 40px 20px;
@@ -135,6 +135,34 @@
             text-align: center;
             border: 1px solid #1f2637;
             margin-top: 50px;
+        }
+
+        /* Información de Contacto */
+        .info-contacto {
+            margin: 20px 0;
+            font-size: 1.1rem;
+        }
+
+        .info-contacto p {
+            margin: 8px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .info-contacto i {
+            color: var(--verde-brillante);
+        }
+
+        .info-contacto a {
+            color: var(--blanco);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .info-contacto a:hover {
+            color: var(--verde-brillante);
         }
 
         .botones-sociales {
@@ -260,10 +288,15 @@
 
         </div>
 
-        <!-- Zona de Llamado a la Acción / Contacto -->
+        <!-- Zona de Contacto -->
         <div class="contacto-zona">
             <h2 class="seccion-titulo">¿Necesitas resguardo, monitoreo o soporte técnico?</h2>
             <p>Contáctanos directamente hoy mismo. Diseñamos planes estratégicos de seguridad operativa y electrónica a la medida de tu empresa o residencia.</p>
+            
+            <!-- Bloque de Información de Contacto Directo Actualizado -->
+            <div class="info-contacto">
+                <p><i class="fa-solid fa-envelope"></i> <strong>Correo:</strong> <a href="mailto:secuorion@outlook.com">secuorion@outlook.com</a></p>
+            </div>
             
             <div class="botones-sociales">
                 <!-- Enlace de WhatsApp directo con mensaje personalizado -->
@@ -271,7 +304,8 @@
                     <i class="fa-brands fa-whatsapp"></i> WhatsApp Técnico
                 </a>
                 
-                <a href="tiktok.com/@security.orion.te" class="btn btn-tiktok" target="_blank">
+                <!-- Enlace de TikTok Actualizado -->
+                <a href="https://www.tiktok.com/@security.orion.te" class="btn btn-tiktok" target="_blank">
                     <i class="fa-brands fa-tiktok"></i> TikTok
                 </a>
 
