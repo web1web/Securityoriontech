@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Security Orión Tech SAS | Seguridad Integral y Traslado de Valores</title>
     
-    <!-- Iconos FontAwesome para Redes Sociales y Servicios -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,400&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -36,7 +39,7 @@
         }
 
         /* ============================================================
-           ENCABEZADO FIJO E INTELIGENTE (SHRINK EFFECT)
+           ENCABEZADO FIJO E INTELIGENTE (SHRINK EFFECT CON FUENTE MODERNA)
         ============================================================ */
         header {
             position: fixed;
@@ -45,56 +48,62 @@
             width: 100%;
             background-color: rgba(255, 255, 255, 0.96);
             backdrop-filter: blur(8px);
-            padding: 20px 20px; /* Padding inicial amplio */
+            padding: 20px 20px;
             text-align: center;
             border-bottom: 3px solid var(--verde-orion);
             z-index: 1000;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Transición suave */
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .logo-container img {
             max-width: 100%;
-            width: 140px; /* Tamaño inicial grande */
+            width: 140px;
             height: auto;
             border-radius: 8px;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        h1 {
+        header h1 {
+            font-family: 'Orbitron', sans-serif; /* Tipografía tecnológica y moderna */
+            font-weight: 900;
             color: var(--texto-oscuro);
-            font-size: 1.8rem;
-            letter-spacing: 0.5px;
-            margin-bottom: 2px;
+            font-size: 1.9rem;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+            text-transform: uppercase;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .slogan {
+        header .slogan {
+            font-family: 'Montserrat', sans-serif; /* Tipografía estilizada y elegante */
             color: var(--verde-orion);
             font-size: 1rem;
             font-style: italic;
             font-weight: 600;
+            letter-spacing: 0.5px;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             opacity: 1;
             max-height: 30px;
         }
 
-        /* --- Estado Reducido al 50% al desplazar (Clase asignada por JS) --- */
+        /* --- Estado Reducido al desplazar --- */
         header.shrink {
-            padding: 8px 20px; /* Reduce la altura a la mitad */
+            padding: 8px 20px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
         header.shrink .logo-container img {
-            width: 70px; /* Logotipo al 50% del tamaño original */
+            width: 70px;
         }
 
         header.shrink h1 {
-            font-size: 1.2rem; /* Reduce el título de forma proporcional */
+            font-size: 1.3rem;
+            letter-spacing: 0.5px;
         }
 
         header.shrink .slogan {
-            font-size: 0px; /* Oculta suavemente el slogan para ahorrar espacio */
+            font-size: 0px;
             opacity: 0;
             max-height: 0;
             margin: 0;
@@ -181,16 +190,16 @@
             margin-bottom: 20px;
         }
 
-        /* Redes Sociales */
+        /* Redes Sociales Interconectadas */
         .orion-redes-enlaces {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
             margin: 20px 0 30px 0;
         }
 
         .red-icon {
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             color: var(--texto-mutado);
             transition: all 0.2s ease;
             text-decoration: none;
@@ -201,6 +210,7 @@
         }
 
         .red-icon.tw-wa { color: #25d366; }
+        .red-icon.tw-fb { color: #1877f2; }
         .red-icon.tw-tt { color: #000000; }
         .red-icon.tw-em { color: #ea4335; }
 
@@ -272,11 +282,10 @@
             }
 
             header { padding: 12px 15px; }
-            h1 { font-size: 1.4rem; }
-            .slogan { font-size: 0.85rem; }
+            header h1 { font-size: 1.4rem; }
+            header .slogan { font-size: 0.85rem; }
             .logo-container img { width: 100px; }
 
-            /* Mantiene un tamaño cómodo en móvil al encogerse */
             header.shrink h1 { font-size: 1.1rem; }
             header.shrink .logo-container img { width: 60px; }
 
@@ -305,7 +314,6 @@
 </head>
 <body>
 
-    <!-- Encabezado Fijo e Inteligente con Logotipo -->
     <header id="main-header">
         <div class="logo-container">
             <img src="logo orion.png" alt="Logotipo Security Orión Tech SAS">
@@ -316,7 +324,6 @@
 
     <div class="container">
         
-        <!-- Bloque de Servicios en Formato de Lista Desplazable -->
         <h2 class="seccion-titulo">Seguridad Electrónica Especializada</h2>
         <div class="servicios-lista">
             
@@ -375,19 +382,17 @@
 
         </div>
 
-        <!-- Zona de Contacto Completa -->
         <div class="contacto-zona">
             <h2 class="seccion-titulo">¿Cómo podemos ayudarte hoy?</h2>
             <p>Elige una de nuestras opciones de atención directa para asistirte a la brevedad.</p>
             
-            <!-- Redes de Conexión Directa Rápidas -->
             <div class="orion-redes-enlaces">
                 <a href="https://wa.me/593986036838" class="red-icon tw-wa" target="_blank" title="WhatsApp Principal"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://www.facebook.com/share/1FrHgRKWM7/" class="red-icon tw-fb" target="_blank" title="Facebook Oficial"><i class="fa-brands fa-facebook"></i></a>
                 <a href="https://www.tiktok.com/@security.orion.te" class="red-icon tw-tt" target="_blank" title="TikTok Oficial"><i class="fa-brands fa-tiktok"></i></a>
                 <a href="mailto:secuorion@outlook.com" class="red-icon tw-em" title="Enviar Correo Electrónico"><i class="fa-solid fa-envelope"></i></a>
             </div>
             
-            <!-- Botones Sociales Adaptables de Acción -->
             <div class="botones-sociales">
                 <a href="https://wa.me/593986036838?text=Hola%20Security%20Orión,%20requiero%20Soporte%20Técnico%20o%20Mantenimiento" class="btn btn-whatsapp-tecnico" target="_blank">
                     <i class="fa-solid fa-gears"></i> WhatsApp Soporte
@@ -405,7 +410,6 @@
 
     </div>
 
-    <!-- Pie de Página con Contador Integrado -->
     <footer>
         <p>&copy; 2026 Security Orión Tech SAS. Todos los derechos reservados.</p>
         
@@ -414,13 +418,16 @@
         </div>
     </footer>
 
-    <!-- Script de Control de Desplazamiento (Shrink Effect) -->
     <script>
         window.onscroll = function() { scrollFunction() };
 
+        // Previene problemas visuales si se recarga la página a mitad del scroll
+        if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
+            document.getElementById("main-header").classList.add("shrink");
+        }
+
         function scrollFunction() {
             const header = document.getElementById("main-header");
-            // Si el usuario baja más de 60px, agrega la clase shrink, de lo contrario la quita
             if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
                 header.classList.add("shrink");
             } else {
@@ -429,7 +436,6 @@
         }
     </script>
 
-    <!-- Script del Contador de Visitas Autónomo -->
     <script>
         function cb(response) {
             document.getElementById('visit-count').innerText = response.value;
