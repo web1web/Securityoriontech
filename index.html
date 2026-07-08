@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Security Orión Tech SAS | Seguridad Integral y Traslado de Valores</title>
     
+    <!-- Iconos FontAwesome para Redes Sociales y Servicios -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -31,10 +32,12 @@
             background-color: var(--bg-principal);
             color: var(--texto-oscuro);
             line-height: 1.6;
-            padding-top: 150px; /* Espacio para compensar el menú fijo */
+            padding-top: 170px; /* Espacio inicial para el encabezado grande */
         }
 
-        /* Encabezado Semi-Fijo (Sticky) */
+        /* ============================================================
+           ENCABEZADO FIJO E INTELIGENTE (SHRINK EFFECT)
+        ============================================================ */
         header {
             position: fixed;
             top: 0;
@@ -42,40 +45,66 @@
             width: 100%;
             background-color: rgba(255, 255, 255, 0.96);
             backdrop-filter: blur(8px);
-            padding: 15px 20px;
+            padding: 20px 20px; /* Padding inicial amplio */
             text-align: center;
             border-bottom: 3px solid var(--verde-orion);
             z-index: 1000;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Transición suave */
         }
 
         .logo-container img {
             max-width: 100%;
-            width: 110px; /* Tamaño optimizado para la barra fija */
+            width: 140px; /* Tamaño inicial grande */
             height: auto;
             border-radius: 8px;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         h1 {
             color: var(--texto-oscuro);
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             letter-spacing: 0.5px;
             margin-bottom: 2px;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .slogan {
             color: var(--verde-orion);
-            font-size: 0.95rem;
+            font-size: 1rem;
             font-style: italic;
             font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 1;
+            max-height: 30px;
         }
+
+        /* --- Estado Reducido al 50% al desplazar (Clase asignada por JS) --- */
+        header.shrink {
+            padding: 8px 20px; /* Reduce la altura a la mitad */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        header.shrink .logo-container img {
+            width: 70px; /* Logotipo al 50% del tamaño original */
+        }
+
+        header.shrink h1 {
+            font-size: 1.2rem; /* Reduce el título de forma proporcional */
+        }
+
+        header.shrink .slogan {
+            font-size: 0px; /* Oculta suavemente el slogan para ahorrar espacio */
+            opacity: 0;
+            max-height: 0;
+            margin: 0;
+        }
+
+        /* ============================================================ */
 
         /* Contenedor Principal */
         .container {
-            max-width: 850px; /* Ancho optimizado para lectura en lista vertical */
+            max-width: 850px;
             margin: 0 auto;
             padding: 0 20px;
         }
@@ -97,7 +126,7 @@
             margin: 8px auto 0 auto;
         }
 
-        /* Estructura de Servicios en Lista Desplazable Vertical */
+        /* Estructura de Servicios en Lista */
         .servicios-lista {
             display: flex;
             flex-direction: column;
@@ -137,7 +166,7 @@
         }
 
         .tarjeta-contenido p {
-            color: var(--texto-mutated);
+            color: var(--texto-mutado);
             font-size: 0.95rem;
         }
 
@@ -152,26 +181,7 @@
             margin-bottom: 20px;
         }
 
-        .info-contacto {
-            margin: 15px 0;
-            font-size: 1.1rem;
-        }
-
-        .info-contacto p {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            color: var(--texto-oscuro);
-        }
-
-        .info-contacto a {
-            color: var(--verde-orion);
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        /* Interconexión de Redes Sociales Especiales de Orión */
+        /* Redes Sociales */
         .orion-redes-enlaces {
             display: flex;
             justify-content: center;
@@ -194,7 +204,7 @@
         .red-icon.tw-tt { color: #000000; }
         .red-icon.tw-em { color: #ea4335; }
 
-        /* Botones de Acción Flexibles y Adaptables */
+        /* Botones de Acción Flexibles */
         .botones-sociales {
             display: flex;
             justify-content: center;
@@ -222,7 +232,7 @@
         }
 
         .btn-whatsapp-tecnico { background-color: #25d366; }
-        .btn-whatsapp-asesor { background-color: #0284c7; } /* Azul corporativo para diferenciarse */
+        .btn-whatsapp-asesor { background-color: #0284c7; } 
         .btn-catalogo { background-color: var(--verde-orion); }
 
         /* Pie de Página */
@@ -255,15 +265,20 @@
 
         .contador-visitas i { color: var(--verde-orion); }
 
-        /* --- MEDIA QUERIES (OPTIMIZACIÓN DISPOSITIVOS MÓVILES Y TABLETS) --- */
+        /* --- MEDIA QUERIES (MÓVILES Y TABLETS) --- */
         @media (max-width: 768px) {
             body {
-                padding-top: 135px;
+                padding-top: 150px;
             }
 
-            h1 { font-size: 1.3rem; }
+            header { padding: 12px 15px; }
+            h1 { font-size: 1.4rem; }
             .slogan { font-size: 0.85rem; }
-            .logo-container img { width: 90px; }
+            .logo-container img { width: 100px; }
+
+            /* Mantiene un tamaño cómodo en móvil al encogerse */
+            header.shrink h1 { font-size: 1.1rem; }
+            header.shrink .logo-container img { width: 60px; }
 
             .tarjeta-lineal {
                 flex-direction: column;
@@ -290,7 +305,8 @@
 </head>
 <body>
 
-    <header>
+    <!-- Encabezado Fijo e Inteligente con Logotipo -->
+    <header id="main-header">
         <div class="logo-container">
             <img src="logo orion.png" alt="Logotipo Security Orión Tech SAS">
         </div>
@@ -300,6 +316,7 @@
 
     <div class="container">
         
+        <!-- Bloque de Servicios en Formato de Lista Desplazable -->
         <h2 class="seccion-titulo">Seguridad Electrónica Especializada</h2>
         <div class="servicios-lista">
             
@@ -358,16 +375,19 @@
 
         </div>
 
+        <!-- Zona de Contacto Completa -->
         <div class="contacto-zona">
             <h2 class="seccion-titulo">¿Cómo podemos ayudarte hoy?</h2>
             <p>Elige una de nuestras opciones de atención directa para asistirte a la brevedad.</p>
             
+            <!-- Redes de Conexión Directa Rápidas -->
             <div class="orion-redes-enlaces">
                 <a href="https://wa.me/593986036838" class="red-icon tw-wa" target="_blank" title="WhatsApp Principal"><i class="fa-brands fa-whatsapp"></i></a>
                 <a href="https://www.tiktok.com/@security.orion.te" class="red-icon tw-tt" target="_blank" title="TikTok Oficial"><i class="fa-brands fa-tiktok"></i></a>
                 <a href="mailto:secuorion@outlook.com" class="red-icon tw-em" title="Enviar Correo Electrónico"><i class="fa-solid fa-envelope"></i></a>
             </div>
             
+            <!-- Botones Sociales Adaptables de Acción -->
             <div class="botones-sociales">
                 <a href="https://wa.me/593986036838?text=Hola%20Security%20Orión,%20requiero%20Soporte%20Técnico%20o%20Mantenimiento" class="btn btn-whatsapp-tecnico" target="_blank">
                     <i class="fa-solid fa-gears"></i> WhatsApp Soporte
@@ -385,6 +405,7 @@
 
     </div>
 
+    <!-- Pie de Página con Contador Integrado -->
     <footer>
         <p>&copy; 2026 Security Orión Tech SAS. Todos los derechos reservados.</p>
         
@@ -393,6 +414,22 @@
         </div>
     </footer>
 
+    <!-- Script de Control de Desplazamiento (Shrink Effect) -->
+    <script>
+        window.onscroll = function() { scrollFunction() };
+
+        function scrollFunction() {
+            const header = document.getElementById("main-header");
+            // Si el usuario baja más de 60px, agrega la clase shrink, de lo contrario la quita
+            if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
+                header.classList.add("shrink");
+            } else {
+                header.classList.remove("shrink");
+            }
+        }
+    </script>
+
+    <!-- Script del Contador de Visitas Autónomo -->
     <script>
         function cb(response) {
             document.getElementById('visit-count').innerText = response.value;
