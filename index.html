@@ -177,6 +177,26 @@
             font-size: 0.95rem;
         }
 
+        /* ============================================================
+           VISTA PREVIA DEL MAPA (RESPONSIVA)
+        ============================================================ */
+        .mapa-contenedor {
+            width: 100%;
+            height: 350px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            border-bottom: 4px solid var(--verde-orion);
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .mapa-contenedor iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
         /* Zona de Contacto y Redes */
         .contacto-zona {
             background-color: var(--bg-tarjetas);
@@ -282,6 +302,7 @@
             max-width: 90%;
             box-shadow: 0 2px 4px rgba(0,0,0,0.02);
             transition: all 0.2s ease;
+            line-height: 1.4;
         }
 
         .footer-ubicacion:hover {
@@ -399,6 +420,16 @@
 
         </div>
 
+        <h2 class="seccion-titulo">Nuestra Ubicación</h2>
+        <div class="mapa-contenedor">
+            <iframe 
+                src="https://maps.google.com/maps?q=Av.%20Mariscal%20Sucre%20S11-490%20y%20El%20Canelo,%20Quito&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
         <div class="contacto-zona">
             <h2 class="seccion-titulo">¿Cómo podemos ayudarte hoy?</h2>
             <p>Elige una de nuestras opciones de atención directa para asistirte a la brevedad.</p>
@@ -428,11 +459,11 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 Security Orión Tech S.A.S. Todos los derechos reservados.</p>
+        <p>© 2026 Security Orión Tech S.A.S. Todos los derechos reservados.</p>
         
         <div class="footer-info-group">
-            <a href="https://maps.app.goo.gl/Zjo5WuhprZBThiTs5" class="footer-ubicacion" target="_blank" title="Ver en Google Maps">
-                <i class="fa-solid fa-location-dot"></i> Dirección Azcazubi, Barrio La Comuna, Cantón Cayambe, Provincia Pichincha
+            <a href="https://www.google.com/maps/search/?api=1&query=Av.+Mariscal+Sucre+S11-490+y+El+Canelo,+Quito" class="footer-ubicacion" target="_blank" title="Ver en Google Maps Grande">
+                <i class="fa-solid fa-location-dot"></i> Av. Mariscal Sucre S11-490 y El Canelo, Piso 3 - Quito, Ecuador
             </a>
 
             <div class="contador-visitas">
