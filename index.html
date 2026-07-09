@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Security Orión Tech S.A.S. | Seguridad Integral y Traslado de Valores</title>
     
+    <!-- Fuentes de Google Fonts: Orbitron (Moderna/Tecnológica) y Montserrat (Elegante) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,400&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
 
+    <!-- Iconos FontAwesome para Redes Sociales y Servicios -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -35,7 +37,7 @@
             background-color: var(--bg-principal);
             color: var(--texto-oscuro);
             line-height: 1.6;
-            padding-top: 170px; /* Espacio inicial para el encabezado grande */
+            padding-top: 220px; /* Corrección de espacio para que no tape el título */
         }
 
         /* ============================================================
@@ -276,7 +278,7 @@
         /* --- MEDIA QUERIES (MÓVILES Y TABLETS) --- */
         @media (max-width: 768px) {
             body {
-                padding-top: 150px;
+                padding-top: 180px; /* Ajuste para móviles */
             }
 
             header { padding: 12px 15px; }
@@ -312,6 +314,7 @@
 </head>
 <body>
 
+    <!-- Encabezado Fijo e Inteligente -->
     <header id="main-header">
         <div class="logo-container">
             <img src="logo orion.png" alt="Logotipo Security Orión Tech S.A.S.">
@@ -322,9 +325,11 @@
 
     <div class="container">
         
+        <!-- Bloque de Servicios en Formato de Lista Desplazable Reorganizado -->
         <h2 class="seccion-titulo">Nuestros Servicios Profesionales</h2>
         <div class="servicios-lista">
             
+            <!-- 1. Monitoreo 24/7 -->
             <div class="tarjeta-lineal">
                 <div class="tarjeta-icono"><i class="fa-solid fa-clock"></i></div>
                 <div class="tarjeta-contenido">
@@ -333,6 +338,7 @@
                 </div>
             </div>
 
+            <!-- 2. Rondas disuasivas -->
             <div class="tarjeta-lineal">
                 <div class="tarjeta-icono"><i class="fa-solid fa-shield-cat"></i></div>
                 <div class="tarjeta-contenido">
@@ -341,6 +347,7 @@
                 </div>
             </div>
 
+            <!-- 3. Traslado de valores -->
             <div class="tarjeta-lineal">
                 <div class="tarjeta-icono"><i class="fa-solid fa-truck-ramp-box"></i></div>
                 <div class="tarjeta-contenido">
@@ -349,6 +356,7 @@
                 </div>
             </div>
 
+            <!-- 4. Venta y distribución de equipos de seguridad electrónica -->
             <div class="tarjeta-lineal">
                 <div class="tarjeta-icono"><i class="fa-solid fa-cart-shopping"></i></div>
                 <div class="tarjeta-contenido">
@@ -357,6 +365,7 @@
                 </div>
             </div>
 
+            <!-- 5. Soporte técnico, Instalación y mantenimiento sistemas de seguridad -->
             <div class="tarjeta-lineal">
                 <div class="tarjeta-icono"><i class="fa-solid fa-screwdriver-wrench"></i></div>
                 <div class="tarjeta-contenido">
@@ -367,10 +376,12 @@
 
         </div>
 
+        <!-- Zona de Contacto Completa -->
         <div class="contacto-zona">
             <h2 class="seccion-titulo">¿Cómo podemos ayudarte hoy?</h2>
             <p>Elige una de nuestras opciones de atención directa para asistirte a la brevedad.</p>
             
+            <!-- Redes de Conexión Directa Rápidas Integradas -->
             <div class="orion-redes-enlaces">
                 <a href="https://wa.me/593986036838" class="red-icon tw-wa" target="_blank" title="WhatsApp Principal"><i class="fa-brands fa-whatsapp"></i></a>
                 <a href="https://www.facebook.com/share/1FrHgRKWM7/" class="red-icon tw-fb" target="_blank" title="Facebook Oficial"><i class="fa-brands fa-facebook"></i></a>
@@ -378,6 +389,7 @@
                 <a href="mailto:secuorion@outlook.com" class="red-icon tw-em" title="Enviar Correo Electrónico"><i class="fa-solid fa-envelope"></i></a>
             </div>
             
+            <!-- Botones Sociales Adaptables de Acción -->
             <div class="botones-sociales">
                 <a href="https://wa.me/593986036838?text=Hola%20Security%20Orión,%20requiero%20Soporte%20Técnico%20o%20Mantenimiento" class="btn btn-whatsapp-tecnico" target="_blank">
                     <i class="fa-solid fa-gears"></i> WhatsApp Soporte
@@ -395,6 +407,7 @@
 
     </div>
 
+    <!-- Pie de Página -->
     <footer>
         <p>&copy; 2026 Security Orión Tech S.A.S. Todos los derechos reservados.</p>
         
@@ -403,6 +416,7 @@
         </div>
     </footer>
 
+    <!-- Script de Control de Desplazamiento (Shrink Effect) -->
     <script>
         window.onscroll = function() { scrollFunction() };
 
@@ -420,6 +434,7 @@
         }
     </script>
 
+    <!-- Script del Contador de Visitas Autónomo Operativo -->
     <script>
         function cb(response) {
             var contador = response.value || response.count || 0;
