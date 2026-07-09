@@ -166,6 +166,10 @@
             text-align: center;
         }
 
+        .tarjeta-contenido {
+            flex-grow: 1;
+        }
+
         .tarjeta-contenido h3 {
             color: var(--texto-oscuro);
             margin-bottom: 5px;
@@ -175,6 +179,29 @@
         .tarjeta-contenido p {
             color: var(--texto-mutado);
             font-size: 0.95rem;
+            margin-bottom: 12px;
+        }
+
+        /* Botones internos de los Servicios */
+        .btn-servicio-mas {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            background-color: transparent;
+            color: var(--verde-orion);
+            border: 1px solid var(--verde-orion);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-servicio-mas:hover {
+            background-color: var(--verde-orion);
+            color: var(--blanco);
+            box-shadow: 0 2px 6px rgba(22, 143, 101, 0.2);
         }
 
         /* ============================================================
@@ -263,7 +290,7 @@
         .btn-whatsapp-asesor { background-color: #0284c7; } 
         .btn-catalogo { background-color: var(--verde-orion); }
 
-        /* Pie de Página con nuevo flujo ordenado */
+        /* Pie de Página */
         footer {
             background-color: #f1f5f9;
             text-align: center;
@@ -348,7 +375,7 @@
                 flex-direction: column;
                 text-align: center;
                 padding: 20px;
-                gap: 10px;
+                gap: 15px;
             }
 
             .tarjeta-icono {
@@ -387,6 +414,9 @@
                 <div class="tarjeta-contenido">
                     <h3>Monitoreo 24/7 y Alertas</h3>
                     <p>Centro de control operativo activo de manera ininterrumpida las 24 horas del día, enlazado a notificaciones instantáneas directo a tu celular.</p>
+                    <a href="monitoreo.html" target="_blank" class="btn-servicio-mas">
+                        <i class="fa-solid fa-circle-info"></i> Conocer concepto
+                    </a>
                 </div>
             </div>
 
@@ -395,6 +425,9 @@
                 <div class="tarjeta-contenido">
                     <h3>Rondas Disuasivas</h3>
                     <p>Patrullaje preventivo y presencia táctica en puntos críticos para mitigar riesgos, disuadir amenazas y garantizar la total tranquilidad en tus instalaciones.</p>
+                    <a href="rondas.html" target="_blank" class="btn-servicio-mas">
+                        <i class="fa-solid fa-circle-info"></i> Conocer concepto
+                    </a>
                 </div>
             </div>
 
@@ -403,6 +436,9 @@
                 <div class="tarjeta-contenido">
                     <h3>Traslado de Valores</h3>
                     <p>Logística segura y personal altamente calificado para la custodia y transporte blindado de recursos monetarios y activos de alto valor.</p>
+                    <a href="traslado-valores.html" target="_blank" class="btn-servicio-mas">
+                        <i class="fa-solid fa-circle-info"></i> Conocer concepto
+                    </a>
                 </div>
             </div>
 
@@ -411,6 +447,9 @@
                 <div class="tarjeta-contenido">
                     <h3>Venta y Distribución</h3>
                     <p>Comercialización de equipamiento tecnológico de vanguardia. Garantizamos equipos 100% nuevos de marcas líderes con el respaldo técnico directo que necesitas.</p>
+                    <a href="venta-equipos.html" target="_blank" class="btn-servicio-mas">
+                        <i class="fa-solid fa-circle-info"></i> Conocer concepto
+                    </a>
                 </div>
             </div>
 
@@ -419,6 +458,9 @@
                 <div class="tarjeta-contenido">
                     <h3>Soporte Técnico, Instalación y Mantenimiento</h3>
                     <p>Implementación técnica especializada, diagnóstico preciso y mantenimiento preventivo o correctivo de sistemas de CCTV, alarmas, cercas eléctricas y control de accesos.</p>
+                    <a href="soporte-tecnico.html" target="_blank" class="btn-servicio-mas">
+                        <i class="fa-solid fa-circle-info"></i> Conocer concepto
+                    </a>
                 </div>
             </div>
 
