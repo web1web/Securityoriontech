@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoreo 24/7 y Alertas | Security Orión Tech S.A.S.</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,400&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-principal: #ffffff;
+            --bg-tarjetas: #f8fafc;
+            --border-color: #e2e8f0;
+            --verde-orion: #168f65;
+            --verde-brillante: #1ed78d;
+            --texto-oscuro: #1e293b;
+            --texto-mutado: #64748b;
+            --blanco: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-principal);
+            color: var(--texto-oscuro);
+            line-height: 1.6;
+            padding-top: 140px;
+        }
+
+        /* Encabezado Simplificado para Páginas Internas */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(8px);
+            padding: 15px 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--verde-orion);
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            color: var(--texto-oscuro);
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-regresar {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--verde-orion);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: 1px solid var(--verde-orion);
+            padding: 6px 14px;
+            border-radius: 20px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-regresar:hover {
+            background-color: var(--verde-orion);
+            color: var(--blanco);
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 0 20px 60px 20px;
+        }
+
+        .seccion-titulo {
+            text-align: center;
+            color: var(--texto-oscuro);
+            margin: 40px 0 30px 0;
+            font-size: 1.6rem;
+            position: relative;
+        }
+
+        .seccion-titulo::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--verde-orion);
+            margin: 8px auto 0 auto;
+        }
+
+        .introduccion {
+            text-align: center;
+            color: var(--texto-mutado);
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* ============================================================
+           DISEÑO DEL FLUJO OPERATIVO (TIMELINE)
+        ============================================================ */
+        .timeline {
+            position: relative;
+            margin: 20px 0 50px 0;
+            padding-left: 30px;
+            border-left: 3px solid var(--border-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 35px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-badge {
+            position: absolute;
+            left: -46px;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background-color: var(--verde-orion);
+            color: var(--blanco);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+            font-size: 0.9rem;
+            border: 3px solid var(--blanco);
+            box-shadow: 0 0 0 3px var(--border-color);
+        }
+
+        .timeline-content {
+            background-color: var(--bg-tarjetas);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        .timeline-fase {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: var(--verde-orion);
+            text-transform: uppercase;
+            margin-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.2rem;
+            color: var(--texto-oscuro);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .timeline-content h3 i {
+            color: var(--verde-orion);
+            font-size: 1.1rem;
+        }
+
+        .timeline-content p {
+            color: var(--texto-mutado);
+            font-size: 0.95rem;
+        }
+
+        /* ============================================================
+           DISEÑO DE BENEFICIOS (GRID)
+        ============================================================ */
+        .beneficios-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .tarjeta-beneficio {
+            background-color: var(--bg-tarjetas);
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--verde-orion);
+            padding: 24px;
+            border-radius: 8px;
+            transition: transform 0.2s ease;
+        }
+
+        .tarjeta-beneficio:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.03);
+        }
+
+        .beneficio-icono {
+            font-size: 1.8rem;
+            color: var(--verde-orion);
+            margin-bottom: 15px;
+        }
+
+        .tarjeta-beneficio h3 {
+            font-size: 1.15rem;
+            color: var(--texto-oscuro);
+            margin-bottom: 8px;
+        }
+
+        .tarjeta-beneficio p {
+            color: var(--texto-mutado);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Botón de acción al final */
+        .cta-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .btn-cotizar {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 30px;
+            background-color: #25d366;
+            color: var(--blanco);
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 30px;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2);
+            transition: transform 0.2s ease;
+        }
+
+        .btn-cotizar:hover {
+            transform: scale(1.03);
+            filter: brightness(0.95);
+        }
+
+        /* Pie de página */
+        footer {
+            background-color: #f1f5f9;
+            text-align: center;
+            padding: 35px 20px;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.85rem;
+            color: var(--texto-mutado);
+        }
+
+        .footer-btn-regresar {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--texto-oscuro);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            border: 1px solid var(--border-color);
+            background-color: var(--blanco);
+            padding: 8px 18px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            transition: all 0.2s ease;
+        }
+
+        .footer-btn-regresar:hover {
+            transform: translateY(-1px);
+            border-color: var(--verde-orion);
+            color: var(--verde-orion);
+        }
+
+        .footer-btn-regresar i {
+            font-size: 0.8rem;
+        }
+
+        /* --- RESPONSIVO --- */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 120px;
+            }
+
+            header h1 {
+                font-size: 1.1rem;
+            }
+
+            .btn-regresar {
+                position: relative;
+                left: unset;
+                top: unset;
+                transform: unset;
+                display: inline-flex;
+                margin-bottom: 10px;
+            }
+
+            header {
+                padding: 10px 15px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .beneficios-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="btn-regresar">
+            <i class="fa-solid fa-arrow-left"></i> Regresar
+        </a>
+        <h1>Monitoreo 24/7 y Alertas</h1>
+    </header>
+
+    <div class="container">
+        
+        <p class="introduccion">Centro de control operativo activo de manera ininterrumpida, enlazado a tecnología avanzada de respuesta inmediata.</p>
+
+        <h2 class="seccion-titulo">¿Cómo Funciona el Ecosistema de Monitoreo?</h2>
+        
+        <div class="timeline">
+            
+            <div class="timeline-item">
+                <div class="timeline-badge">1</div>
+                <div class="timeline-content">
+                    <span class="timeline-fase">Fase 1</span>
+                    <h3><i class="fa-solid fa-radar"></i> Detección Automatizada</h3>
+                    <p>Los dispositivos perimetrales e internos (sensores de movimiento, contactos magnéticos, barreras fotoeléctricas) detectan una intrusión o anomalía en la propiedad.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-badge">2</div>
+                <div class="timeline-content">
+                    <span class="timeline-fase">Fase 2</span>
+                    <h3><i class="fa-solid fa-rss"></i> Transmisión de la Señal</h3>
+                    <p>El panel principal de la alarma procesa el disparo y envía una señal digital codificada a la Central de Monitoreo utilizando canales de comunicación redundantes (GPRS/celular, internet IP o radiofrecuencia).</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-badge">3</div>
+                <div class="timeline-content">
+                    <span class="timeline-fase">Fase 3</span>
+                    <h3><i class="fa-solid fa-video"></i> Videoverificación en Tiempo Real</h3>
+                    <p>Al recibir la alerta, los operadores de la central acceden de inmediato a las cámaras vinculadas al sistema. Esto permite confirmar visualmente si se trata de una intrusión real o de una falsa alarma antes de despachar recursos.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-badge">4</div>
+                <div class="timeline-content">
+                    <span class="timeline-fase">Fase 4</span>
+                    <h3><i class="fa-solid fa-shield-halved"></i> Protocolo de Reacción y Despacho</h3>
+                    <p>Confirmada la amenaza, la central notifica de inmediato al propietario, activa a las unidades de reacción rápida (custodios motorizados) y coordina con las fuerzas del orden público (Policía Nacional) para asistir al sitio.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <h2 class="seccion-titulo">Beneficios Clave del Monitoreo Continuo</h2>
+        
+        <div class="beneficios-grid">
+            
+            <div class="tarjeta-beneficio">
+                <div class="beneficio-icono"><i class="fa-solid fa-user-shield"></i></div>
+                <h3>Prevención Proactiva</h3>
+                <p>A diferencia de una alarma local que solo suena en el sitio, un sistema monitoreado garantiza que siempre habrá un equipo humano listo para responder, sin importar la hora o si el propietario se encuentra desconectado.</p>
+            </div>
+
+            <div class="tarjeta-beneficio">
+                <div class="beneficio-icono"><i class="fa-solid fa-calendar-check"></i></div>
+                <h3>Protección Ininterrumpida</h3>
+                <p>Supervisión constante los 365 días del año, cubriendo momentos de alta vulnerabilidad como madrugadas, fines de semana o periodos de vacaciones.</p>
+            </div>
+
+            <div class="tarjeta-beneficio">
+                <div class="beneficio-icono"><i class="fa-solid fa-user-check"></i></div>
+                <h3>Reducción de Falsas Alarmas</h3>
+                <p>La integración de la videoverificación optimiza los tiempos de respuesta, evitando el desgaste operativo por disparos accidentales.</p>
+            </div>
+
+            <div class="tarjeta-beneficio">
+                <div class="beneficio-icono"><i class="fa-solid fa-bolt"></i></div>
+                <h3>Supervisión de Conectividad</h3>
+                <p>La central no solo recibe alertas de robo; también detecta fallos técnicos, cortes de energía en el panel, sabotajes de cableado o baterías bajas, asegurando la continuidad del servicio.</p>
+            </div>
+
+        </div>
+
+        <div class="cta-container">
+            <a href="https://wa.me/593986036838?text=Hola%20Security%20Orión,%20deseo%20cotizar%20el%20servicio%20de%20Monitoreo%2024/7" class="btn-grid btn-cotizar" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i> Cotizar este Servicio
+            </a>
+        </div>
+
+    </div>
+
+    <footer>
+        <div>
+            <a href="index.html" class="footer-btn-regresar">
+                <i class="fa-solid fa-arrow-left"></i> Volver al Menú Principal
+            </a>
+        </div>
+        <p>© 2026 Security Orión Tech S.A.S. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
