@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traslado de Valores y Recaudación | Security Orión Tech S.A.S.</title>
+    
+    <!-- Fuentes de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,400&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+
+    <!-- Iconos FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-principal: #ffffff;
+            --bg-tarjetas: #f8fafc;
+            --border-color: #e2e8f0;
+            --verde-orion: #168f65;
+            --verde-brillante: #1ed78d;
+            --texto-oscuro: #1e293b;
+            --texto-mutado: #64748b;
+            --blanco: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-principal);
+            color: var(--texto-oscuro);
+            line-height: 1.6;
+            padding-top: 140px;
+        }
+
+        /* Encabezado Simplificado para Páginas Internas */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(8px);
+            padding: 15px 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--verde-orion);
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            color: var(--texto-oscuro);
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-regresar {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--verde-orion);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: 1px solid var(--verde-orion);
+            padding: 6px 14px;
+            border-radius: 20px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-regresar:hover {
+            background-color: var(--verde-orion);
+            color: var(--blanco);
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 0 20px 60px 20px;
+        }
+
+        .seccion-titulo {
+            text-align: center;
+            color: var(--texto-oscuro);
+            margin: 40px 0 30px 0;
+            font-size: 1.6rem;
+            position: relative;
+        }
+
+        .seccion-titulo::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--verde-orion);
+            margin: 8px auto 0 auto;
+        }
+
+        .introduccion {
+            text-align: center;
+            color: var(--texto-mutado);
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* ============================================================
+           DISEÑO DEL FLUJO OPERATIVO (TIMELINE)
+        ============================================================ */
+        .timeline {
+            position: relative;
+            margin: 20px 0 50px 0;
+            padding-left: 30px;
+            border-left: 3px solid var(--border-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 35px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-badge {
+            position: absolute;
+            left: -46px;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background-color: var(--verde-orion);
+            color: var(--blanco);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+            font-size: 0.9rem;
+            border: 3px solid var(--blanco);
+            box-shadow: 0 0 0 3px var(--border-color);
+        }
+
+        .timeline-content {
+            background-color: var(--bg-tarjetas);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        .timeline-fase {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: var(--verde-orion);
+            text-transform: uppercase;
+            margin-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.2rem;
+            color: var(--texto-oscuro);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .timeline-content h3 i {
+            color: var(--verde-orion);
+            font-size: 1.1rem;
+        }
+
+        .timeline-content p {
+            color: var(--texto-mutado);
+            font-size: 0.95rem;
+        }
+
+        /* ============================================================
+           DISEÑO DE BENEFICIOS (GRID)
+        ============================================================ */
+        .beneficios-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .tarjeta-beneficio {
+            background-color: var(--bg-tarjetas);
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--verde-orion);
+            padding: 24px;
+            border-radius: 8px;
+            transition: transform 0.2s ease;
+        }
+
+        .tarjeta-beneficio:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.03);
+        }
+
+        .beneficio-icono {
+            font-size: 1.8rem;
+            color: var(--verde-orion);
+            margin-bottom: 15px;
+        }
+
+        .tarjeta-beneficio h3 {
+            font-size: 1.15rem;
+            color: var(--texto-oscuro);
+            margin-bottom: 8px;
+        }
+
+        .tarjeta-beneficio p {
+            color: var(--texto-mutado);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Botón de acción al final */
+        .cta-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .btn-cotizar {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 30px;
+            background-color: #25d366;
+            color: var(--blanco);
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 30px;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2);
+            transition: transform 0.2s ease;
+        }
+
+        .btn-cotizar:hover {
+            transform: scale(1.03);
+            filter: brightness(0.95);
+        }
+
+        /* Pie de página */
+        footer {
+            background-color: #f1f5f9;
+            text-align: center;
+            padding: 35px 20px;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.85rem;
+            color: var(--texto-mutado);
+        }
+
+        .footer-btn-regresar {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--texto-oscuro);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            border: 1px solid var(--border-color);
+            background-color: var(--blanco);
+            padding: 8px 18px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            transition: all 0.2s ease;
+        }
+
+        .footer-btn-regresar:hover {
+            transform: translateY(-1px);
+            border-color: var(--verde-orion);
+            color: var(--verde-orion);
+        }
+
+        .footer-btn-regresar i {
+            font-size: 0.8rem;
+        }
+
+        /* --- RESPONSIVO --- */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 120px;
+            }
+
+            header h1 {
+                font-size: 1.1rem;
+            }
+
+            .btn-regresar {
+                position: relative;
+                left: unset;
+                top: unset;
+                transform: unset;
+                display: inline-flex;
+                margin-bottom: 10px;
+            }
+
+            header {
+                padding: 10px 15px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .beneficios-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado de Navegación -->
+    <header>
+        <a href="index.html" class="btn-regresar">
+            <i class="fa-solid fa-arrow-left"></i> Regresar
+        </a>
+        <h1>Traslado de Valores y Recaudación</h1>
+    </header>
+
+    <div class="container">
+        
+        <p class="introduccion">Logística inteligente de seguridad diseñada para recolectar el flujo de caja de tu negocio y depositarlo de forma directa y blindada en tu cuenta bancaria.</p>
+
+        <!-- Sección: ¿Cómo Funciona el Protocolo? -->
+        <h2 class="seccion-titulo">¿Cómo Funciona nuestro Protocolo de Recaudación Express?</h2>
+        
+        <div class="timeline">
+            
+            <!-- Fase 1 -->
+            <div class="timeline-item">
+                <div class="timeline-badge">1</div>
+                <div class="timeline-content">
+                    <span class="timeline-fase">Fase 1</span>
+                    <h3><i class="fa-solid fa-phone-volume"></i> Solicitud de Servicio On-Demand</h3>
+                    <p>Cuando tu establecimiento alcance su límite de caja o requiera un traslado urgente, solo necesitas realizar una llamada directa a nuestra central operativa para programar la recolección inmediata en tu ruta.</p>
+                </div>
+            </div>
+
+            <!-- Fase 2 -->
+            <div class="timeline-item">
+                <div class="timeline-badge">2</div>
+                <div class="timeline-content">
+                    <span class="timeline-fase">Fase 2</span>
+                    <h3><i class="fa-solid fa-user-check"></i> Despacho y Verificación del Personal</h3>
+                    <p>Asignamos a la tripulación táctica más cercana. Previo a su llegada, recibes la confirmación oficial con los datos de identidad del personal designado que visitará tu local, eliminando cualquier margen de suplantación.</p>
+                </div>
+            </div>
+
+            <!-- Fase 3 -->
+            <div class="timeline-item">
+                <div class="timeline-badge">3</div>
+                <div class="timeline-content">
+                    <span class="timeline-fase">Fase 3</span>
+                    <h3><i class="fa-solid fa-envelope-open-text"></i> Recaudación In Situ y Precintado</h3>
+                    <p>Nuestro personal se presenta bajo estrictas alertas perimetrales. En tu zona de seguridad se realiza el conteo, verificación física del efectivo y resguardo inmediato en bolsas especiales con precintos inviolables de alta seguridad.</p>
+                </div>
+            </div>
+
+            <!-- Fase 4 -->
+            <div class="timeline-item">
+                <div class="timeline-badge">4</div>
+                <div class="timeline-content">
+                    <span class="timeline-fase">Fase 4</span>
+                    <h3><i class="fa-solid fa-building-columns"></i> Traslado Blindado y Depósito Directo</h3>
+                    <p>La unidad realiza el transporte monitoreado vía GPS en tiempo real directo a las entidades financieras. El dinero se acredita en tu cuenta bancaria de forma directa, enviando tu comprobante digital de forma automática.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Sección: Servicios Agregados y Beneficios -->
+        <h2 class="seccion-titulo">Servicios Agregados y Beneficios para tu Negocio</h2>
+        
+        <div class="beneficios-grid">
+            
+            <!-- Beneficio 1 -->
+            <div class="tarjeta-beneficio">
+                <div class="beneficio-icono"><i class="fa-solid fa-store-slash"></i></div>
+                <h3>Sin Salir de tu Establecimiento</h3>
+                <p>El banco va hacia ti. Elimina por completo las peligrosas rutinas de traslado a pie o en vehículos particulares cargando efectivo en la vía pública, anulando el riesgo de asaltos o robos bajo la modalidad de "sacapintas".</p>
+            </div>
+
+            <!-- Beneficio 2 -->
+            <div class="tarjeta-beneficio">
+                <div class="beneficio-icono"><i class="fa-solid fa-hourglass-fixed"></i></div>
+                <h3>Comodidad y Ahorro de Tiempo</h3>
+                <p>Optimiza la productividad operativa de tus colaboradores. Olvídate de destinar horas muertas de trabajo haciendo largas y tediosas filas en ventanillas bancarias; nosotros hacemos toda la gestión logística por ti.</p>
+            </div>
+
+            <!-- Beneficio 3 -->
+            <div class="tarjeta-beneficio">
+                <div class="beneficio-icono"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                <h3>Flexibilidad Dinámica</h3>
+                <p>Un servicio ideal para estaciones de servicio, farmacias, cadenas comerciales o distribuidoras locales que manejan flujos de efectivo variables y prefieren un servicio ágil que responda ante una simple llamada.</p>
+            </div>
+
+            <!-- Beneficio 4 -->
+            <div class="tarjeta-beneficio">
+                <div class="beneficio-icono"><i class="fa-solid fa-file-shield"></i></div>
+                <h3>Cadena de Custodia con Respaldo</h3>
+                <p>Desde el momento preciso en el que los valores se registran en el acta de recaudación y se sella el precinto de seguridad numérico en tu local, la cobertura civil de riesgo queda respaldada por la póliza de la empresa.</p>
+            </div>
+
+        </div>
+
+        <!-- Botón de Acción Directa -->
+        <div class="cta-container">
+            <a href="https://wa.me/593986036838?text=Hola%20Security%20Orión,%20deseo%20más%20información%20y%20cotizar%20el%20servicio%20de%20Traslado%20de%20Valores" class="btn-grid btn-cotizar" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i> Solicitar Información del Servicio
+            </a>
+        </div>
+
+    </div>
+
+    <!-- Pie de Página -->
+    <footer>
+        <!-- Botón de Regresar Inferior -->
+        <div>
+            <a href="index.html" class="footer-btn-regresar">
+                <i class="fa-solid fa-arrow-left"></i> Volver al Menú Principal
+            </a>
+        </div>
+        <p>© 2026 Security Orión Tech S.A.S. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
