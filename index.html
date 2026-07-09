@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Security Orión Tech S.A.S. | Seguridad Integral y Traslado de Valores</title>
     
-    <!-- Fuentes de Google Fonts: Orbitron (Moderna/Tecnológica) y Montserrat (Elegante) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,400&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
 
-    <!-- Iconos FontAwesome para Redes Sociales y Servicios -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -257,7 +255,39 @@
 
         footer p {
             color: var(--texto-mutado);
-            margin-bottom: 12px;
+            margin-bottom: 15px;
+        }
+
+        /* Contenedores de Información en Footer */
+        .footer-info-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .footer-ubicacion {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--texto-oscuro);
+            font-weight: 500;
+            text-decoration: none;
+            max-width: 90%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            transition: all 0.2s ease;
+        }
+
+        .footer-ubicacion:hover {
+            transform: scale(1.02);
+            border-color: var(--verde-orion);
+            color: var(--verde-orion);
         }
 
         .contador-visitas {
@@ -273,7 +303,7 @@
             font-weight: bold;
         }
 
-        .contador-visitas i { color: var(--verde-orion); }
+        .contador-visitas i, .footer-ubicacion i { color: var(--verde-orion); }
 
         /* --- MEDIA QUERIES (MÓVILES Y TABLETS) --- */
         @media (max-width: 768px) {
@@ -314,7 +344,6 @@
 </head>
 <body>
 
-    <!-- Encabezado Fijo e Inteligente -->
     <header id="main-header">
         <div class="logo-container">
             <img src="logo orion.png" alt="Logotipo Security Orión Tech S.A.S.">
@@ -325,11 +354,9 @@
 
     <div class="container">
         
-        <!-- Bloque de Servicios en Formato de Lista Desplazable Reorganizado -->
         <h2 class="seccion-titulo">Nuestros Servicios Profesionales</h2>
         <div class="servicios-lista">
             
-            <!-- 1. Monitoreo 24/7 -->
             <div class="tarjeta-lineal">
                 <div class="tarjeta-icono"><i class="fa-solid fa-clock"></i></div>
                 <div class="tarjeta-contenido">
@@ -338,7 +365,6 @@
                 </div>
             </div>
 
-            <!-- 2. Rondas disuasivas -->
             <div class="tarjeta-lineal">
                 <div class="tarjeta-icono"><i class="fa-solid fa-shield-cat"></i></div>
                 <div class="tarjeta-contenido">
@@ -347,7 +373,6 @@
                 </div>
             </div>
 
-            <!-- 3. Traslado de valores -->
             <div class="tarjeta-lineal">
                 <div class="tarjeta-icono"><i class="fa-solid fa-truck-ramp-box"></i></div>
                 <div class="tarjeta-contenido">
@@ -356,7 +381,6 @@
                 </div>
             </div>
 
-            <!-- 4. Venta y distribución de equipos de seguridad electrónica -->
             <div class="tarjeta-lineal">
                 <div class="tarjeta-icono"><i class="fa-solid fa-cart-shopping"></i></div>
                 <div class="tarjeta-contenido">
@@ -365,7 +389,6 @@
                 </div>
             </div>
 
-            <!-- 5. Soporte técnico, Instalación y mantenimiento sistemas de seguridad -->
             <div class="tarjeta-lineal">
                 <div class="tarjeta-icono"><i class="fa-solid fa-screwdriver-wrench"></i></div>
                 <div class="tarjeta-contenido">
@@ -376,12 +399,10 @@
 
         </div>
 
-        <!-- Zona de Contacto Completa -->
         <div class="contacto-zona">
             <h2 class="seccion-titulo">¿Cómo podemos ayudarte hoy?</h2>
             <p>Elige una de nuestras opciones de atención directa para asistirte a la brevedad.</p>
             
-            <!-- Redes de Conexión Directa Rápidas Integradas -->
             <div class="orion-redes-enlaces">
                 <a href="https://wa.me/593986036838" class="red-icon tw-wa" target="_blank" title="WhatsApp Principal"><i class="fa-brands fa-whatsapp"></i></a>
                 <a href="https://www.facebook.com/share/1FrHgRKWM7/" class="red-icon tw-fb" target="_blank" title="Facebook Oficial"><i class="fa-brands fa-facebook"></i></a>
@@ -389,7 +410,6 @@
                 <a href="mailto:secuorion@outlook.com" class="red-icon tw-em" title="Enviar Correo Electrónico"><i class="fa-solid fa-envelope"></i></a>
             </div>
             
-            <!-- Botones Sociales Adaptables de Acción -->
             <div class="botones-sociales">
                 <a href="https://wa.me/593986036838?text=Hola%20Security%20Orión,%20requiero%20Soporte%20Técnico%20o%20Mantenimiento" class="btn btn-whatsapp-tecnico" target="_blank">
                     <i class="fa-solid fa-gears"></i> WhatsApp Soporte
@@ -407,16 +427,20 @@
 
     </div>
 
-    <!-- Pie de Página -->
     <footer>
         <p>&copy; 2026 Security Orión Tech S.A.S. Todos los derechos reservados.</p>
         
-        <div class="contador-visitas">
-            <i class="fa-solid fa-eye"></i> Visitas a la página: <span id="visit-count">Cargando...</span>
+        <div class="footer-info-group">
+            <a href="https://maps.app.goo.gl/Zjo5WuhprZBThiTs5" class="footer-ubicacion" target="_blank" title="Ver en Google Maps">
+                <i class="fa-solid fa-location-dot"></i> Dirección Azcazubi, Barrio La Comuna, Cantón Cayambe, Provincia Pichincha
+            </a>
+
+            <div class="contador-visitas">
+                <i class="fa-solid fa-eye"></i> Visitas a la página: <span id="visit-count">Cargando...</span>
+            </div>
         </div>
     </footer>
 
-    <!-- Script de Control de Desplazamiento (Shrink Effect) -->
     <script>
         window.onscroll = function() { scrollFunction() };
 
@@ -434,7 +458,6 @@
         }
     </script>
 
-    <!-- Script del Contador de Visitas Autónomo Operativo -->
     <script>
         function cb(response) {
             var contador = response.value || response.count || 0;
