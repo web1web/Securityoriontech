@@ -360,6 +360,101 @@
             border: 0;
         }
 
+        /* ============================================================
+           SECCIÓN DE CONTACTO Y REDES SOCIALES
+        ============================================================ */
+        .contacto-zona {
+            text-align: center;
+            background-color: var(--bg-tarjetas);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 35px 20px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .contacto-zona p {
+            color: var(--texto-mutado);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
+
+        .orion-redes-enlaces {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .red-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.4rem;
+            color: var(--blanco);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .red-icon:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
+
+        .tw-wa { background-color: #25d366; }
+        .tw-fb { background-color: #1877f2; }
+        .tw-tt { background-color: #000000; }
+        .tw-em { background-color: var(--verde-orion); }
+
+        .botones-sociales {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            color: var(--blanco);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-whatsapp-tecnico {
+            background-color: var(--texto-oscuro);
+            border: 1px solid var(--texto-oscuro);
+        }
+
+        .btn-whatsapp-tecnico:hover {
+            background-color: #0f172a;
+        }
+
+        .btn-whatsapp-asesor {
+            background-color: var(--verde-orion);
+            border: 1px solid var(--verde-orion);
+        }
+
+        .btn-whatsapp-asesor:hover {
+            background-color: #127553;
+        }
+
         /* Pie de Página */
         footer {
             background-color: #f1f5f9;
@@ -523,6 +618,8 @@
             .grid-identity, .grid-valores { grid-template-columns: 1fr; }
             .tarjeta-lineal { flex-direction: column; text-align: center; padding: 20px; gap: 15px; }
             .tarjeta-icono { min-width: unset; }
+            .botones-sociales { flex-direction: column; width: 100%; }
+            .btn { width: 100%; justify-content: center; }
         }
     </style>
 </head>
@@ -636,31 +733,6 @@
 
         </div>
 
-
-
-        <div class="contacto-zona">
-            <h2 class="seccion-titulo">¿Cómo podemos ayudarte hoy?</h2>
-            <p>Elige una de nuestras opciones de atención directa para asistirte a la brevedad.</p>
-            
-            <div class="orion-redes-enlaces">
-                <a href="https://wa.me/593984154893" class="red-icon tw-wa" target="_blank" title="WhatsApp Principal"><i class="fa-brands fa-whatsapp"></i></a>
-                <a href="https://www.facebook.com/share/1FrHgRKWM7/" class="red-icon tw-fb" target="_blank" title="Facebook Oficial"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://www.tiktok.com/@security.orion.te" class="red-icon tw-tt" target="_blank" title="TikTok Oficial"><i class="fa-brands fa-tiktok"></i></a>
-                <a href="mailto:secuorion@outlook.com" class="red-icon tw-em" title="Enviar Correo Electrónico"><i class="fa-solid fa-envelope"></i></a>
-            </div>
-            
-            <div class="botones-sociales">
-                <a href="https://wa.me/593969425863?text=Hola%20Security%20Orión,%20requiero%20Soporte%20Técnico%20o%20Mantenimiento" class="btn btn-whatsapp-tecnico" target="_blank">
-                    <i class="fa-solid fa-gears"></i> WhatsApp Soporte
-                </a>
-
-                <a href="https://wa.me/593984154893?text=Hola%20Security%20Orión,%20solicito%20información%20de%20servicios%20y%20cotizaciones" class="btn btn-whatsapp-asesor" target="_blank">
-                    <i class="fa-solid fa-user-tie"></i> Contactar un Asesor
-                </a>
-
-
-
-
         <!-- SECCIÓN: EQUIPOS NUEVOS Y GARANTIZADOS -->
         <section class="marcas-section">
             <h3>Equipos Nuevos y Garantizados</h3>
@@ -687,6 +759,29 @@
                 loading="lazy" 
                 referrerpolicy="no-referrer-when-downgrade">
             </iframe>
+        </div>
+
+        <!-- SECCIÓN DE CONTACTO -->
+        <div class="contacto-zona">
+            <h2 class="seccion-titulo">¿Cómo podemos ayudarte hoy?</h2>
+            <p>Elige una de nuestras opciones de atención directa para asistirte a la brevedad.</p>
+            
+            <div class="orion-redes-enlaces">
+                <a href="https://wa.me/593984154893" class="red-icon tw-wa" target="_blank" title="WhatsApp Principal"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://www.facebook.com/share/1FrHgRKWM7/" class="red-icon tw-fb" target="_blank" title="Facebook Oficial"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.tiktok.com/@security.orion.te" class="red-icon tw-tt" target="_blank" title="TikTok Oficial"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="mailto:secuorion@outlook.com" class="red-icon tw-em" title="Enviar Correo Electrónico"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+            
+            <div class="botones-sociales">
+                <a href="https://wa.me/593969425863?text=Hola%20Security%20Orión,%20requiero%20Soporte%20Técnico%20o%20Mantenimiento" class="btn btn-whatsapp-tecnico" target="_blank">
+                    <i class="fa-solid fa-gears"></i> WhatsApp Soporte
+                </a>
+
+                <a href="https://wa.me/593984154893?text=Hola%20Security%20Orión,%20solicito%20información%20de%20servicios%20y%20cotizaciones" class="btn btn-whatsapp-asesor" target="_blank">
+                    <i class="fa-solid fa-user-tie"></i> Contactar un Asesor
+                </a>
+            </div>
         </div>
 
     </div>
