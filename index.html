@@ -668,12 +668,34 @@
         }
     </script>
 
-    <script>
-        function cb(response) {
-            var contador = response.value || response.count || 0;
-            document.getElementById('visit-count').innerText = contador;
-        }
-    </script>
+
+
+ <!-- NUEVO CONTADOR FUNCIONAL Y VERIFICABLE -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Claves únicas para tu dominio / namespace
+        const namespace = "securityoriontechsas";
+        const key = "homepage_visits";
+
+        fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data && data.value !== undefined) {
+                    document.getElementById('visit-count').innerText = data.value.toLocaleString();
+                } else {
+                    document.getElementById('visit-count').innerText = "1";
+                }
+            })
+            .catch(error => {
+                console.error("Error al cargar contador:", error);
+                // Si falla la API de conteo, muestra un valor predeterminado elegante
+                document.getElementById('visit-count').innerText = "Activo";
+            });
+    });
+</script>
+
+
+
     <script async src="https://api.lyzard.cc/hit/securityoriontechsas/homepage?callback=cb"></script>
 
 </body>
