@@ -35,7 +35,7 @@
             background-color: var(--bg-principal);
             color: var(--texto-oscuro);
             line-height: 1.6;
-            padding-top: 220px; /* Corrección de espacio para que no tape el título */
+            padding-top: 220px;
         }
 
         /* ============================================================
@@ -265,7 +265,6 @@
             margin-bottom: 12px;
         }
 
-        /* Botones internos de los Servicios */
         .btn-servicio-mas {
             display: inline-flex;
             align-items: center;
@@ -285,6 +284,80 @@
             background-color: var(--verde-orion);
             color: var(--blanco);
             box-shadow: 0 2px 6px rgba(22, 143, 101, 0.2);
+        }
+
+        /* ============================================================
+           SECCIÓN: EQUIPOS NUEVOS Y GARANTIZADOS
+        ============================================================ */
+        .marcas-section {
+            background-color: var(--bg-tarjetas);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 35px 20px;
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .marcas-section h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            color: var(--texto-oscuro);
+            margin-bottom: 8px;
+        }
+
+        .marcas-section p {
+            font-size: 0.9rem;
+            color: var(--texto-mutado);
+            margin-bottom: 25px;
+        }
+
+        .marcas-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .marca-item {
+            padding: 10px 18px;
+            background-color: var(--blanco);
+            border: 1px dashed var(--border-color);
+            border-radius: 8px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            color: var(--texto-oscuro);
+            font-weight: bold;
+            transition: all 0.2s ease;
+        }
+
+        .marca-item:hover {
+            border-color: var(--verde-orion);
+            color: var(--verde-orion);
+            transform: translateY(-2px);
+        }
+
+        /* ============================================================
+           VISTA PREVIA DEL MAPA (RESPONSIVA)
+        ============================================================ */
+        .mapa-contenedor {
+            width: 100%;
+            height: 350px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            border-bottom: 4px solid var(--verde-orion);
+            margin-top: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .mapa-contenedor iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
         }
 
         /* Pie de Página */
@@ -329,7 +402,6 @@
             color: var(--verde-orion);
         }
 
-        /* ESTILOS DEL CONTADOR INTERACTIVO CON MODAL DE VERIFICACIÓN */
         .contador-visitas {
             display: inline-flex;
             align-items: center;
@@ -440,38 +512,17 @@
             font-size: 0.75rem;
         }
 
-        /* --- MEDIA QUERIES (MÓVILES Y TABLETS) --- */
         @media (max-width: 768px) {
-            body {
-                padding-top: 180px; /* Ajuste para móviles */
-            }
-
+            body { padding-top: 180px; }
             header { padding: 12px 15px; }
             header h1 { font-size: 1.4rem; }
             header .slogan { font-size: 0.85rem; }
             .logo-container img { width: 100px; }
-
             header.shrink h1 { font-size: 1.1rem; }
             header.shrink .logo-container img { width: 60px; }
-
-            .grid-identity {
-                grid-template-columns: 1fr;
-            }
-
-            .grid-valores {
-                grid-template-columns: 1fr;
-            }
-
-            .tarjeta-lineal {
-                flex-direction: column;
-                text-align: center;
-                padding: 20px;
-                gap: 15px;
-            }
-
-            .tarjeta-icono {
-                min-width: unset;
-            }
+            .grid-identity, .grid-valores { grid-template-columns: 1fr; }
+            .tarjeta-lineal { flex-direction: column; text-align: center; padding: 20px; gap: 15px; }
+            .tarjeta-icono { min-width: unset; }
         }
     </style>
 </head>
@@ -487,9 +538,7 @@
 
     <div class="container">
 
-        <!-- ============================================================
-             SECCIÓN: SOBRE NOSOTROS (MISIÓN, VISIÓN Y VALORES)
-        ============================================================ -->
+        <!-- SECCIÓN: SOBRE NOSOTROS -->
         <h2 class="seccion-titulo">Sobre Nosotros</h2>
         
         <div class="grid-identity">
@@ -526,9 +575,7 @@
             </div>
         </div>
         
-        <!-- ============================================================
-             SECCIÓN DE SERVICIOS
-        ============================================================ -->
+        <!-- SECCIÓN DE SERVICIOS -->
         <h2 class="seccion-titulo">Nuestros Servicios Profesionales</h2>
         <div class="servicios-lista">
             
@@ -558,7 +605,7 @@
                 <div class="tarjeta-icono"><i class="fa-solid fa-truck-ramp-box"></i></div>
                 <div class="tarjeta-contenido">
                     <h3>Traslado de Valores</h3>
-                    <p>Logística segura y personal altamente calificado para la custodia y transporte blindado de recursos monetarios y activos de alto valor.</p>
+                    <p>Logística segura y personal highly calificado para la custodia y transporte blindado de recursos monetarios y activos de alto valor.</p>
                     <a href="traslado-valores.html" target="_blank" class="btn-servicio-mas">
                         <i class="fa-solid fa-circle-info"></i> Conocer concepto
                     </a>
@@ -588,12 +635,37 @@
             </div>
 
         </div>
+
+        <!-- SECCIÓN: EQUIPOS NUEVOS Y GARANTIZADOS -->
+        <section class="marcas-section">
+            <h3>Equipos Nuevos y Garantizados</h3>
+            <p>Trabajamos exclusivamente con tecnología original de marcas reconocidas mundialmente:</p>
+            <div class="marcas-grid">
+                <div class="marca-item">HIKVISION</div>
+                <div class="marca-item">DAHUA</div>
+                <div class="marca-item">DSC</div>
+                <div class="marca-item">PARADOX</div>
+                <div class="marca-item">EZVIZ / IMOU</div>
+            </div>
+        </section>
+
+        <!-- UBICACIÓN EN GOOGLE MAPS -->
+        <h2 class="seccion-titulo">Nuestra Ubicación</h2>
+        <div class="mapa-contenedor">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127672.75618492061!2d-78.58356891040827!3d-0.18065319985923985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d59a4002422c05%3A0x214b61b091f095f3!2sQuito%2C%20Ecuador!5e0!2m3!1ses!2sec!4v1710000000000!5m2!1ses!2sec" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
     </div>
 
     <!-- PIE DE PÁGINA -->
     <footer>
         <div class="footer-info-group">
-            <a href="https://maps.google.com" target="_blank" class="footer-ubicacion">
+            <a href="https://maps.google.com/?q=Quito,+Ecuador" target="_blank" class="footer-ubicacion">
                 <i class="fa-solid fa-location-dot"></i> Quito - Provincia de Pichincha
             </a>
 
@@ -631,9 +703,9 @@
         </div>
     </div>
 
-    <!-- SCRIPTS: EFECTO HEADER Y CONTROLADOR DEL CONTADOR -->
+    <!-- SCRIPTS -->
     <script>
-        // Efecto Shrink del Header al desplazarse
+        // Efecto Shrink del Header
         window.addEventListener('scroll', function() {
             const header = document.getElementById('main-header');
             if (window.scrollY > 50) {
@@ -643,20 +715,14 @@
             }
         });
 
-        // Sistema de Conteo Incremental y Verificación Local de Visitas
+        // Conteo Incremental y Verificación Local
         const KEY_STORE = 'orion_page_views_count';
 
         function obtenerYActualizarVisitas() {
-            // Lee el conteo previo o establece la base inicial (104)
             let visitas = parseInt(localStorage.getItem(KEY_STORE) || "104");
-            
-            // Incrementa en +1 por cada carga de página
             visitas++;
-            
-            // Guarda la nueva lectura
             localStorage.setItem(KEY_STORE, visitas);
 
-            // Renderiza el valor actualizado en pantalla
             document.getElementById('visit-count').innerText = visitas.toLocaleString();
             document.getElementById('modal-count-val').innerText = visitas.toLocaleString();
             
@@ -679,7 +745,6 @@
             }
         }
 
-        // Ejecutar al cargar la página
         document.addEventListener("DOMContentLoaded", obtenerYActualizarVisitas);
     </script>
 </body>
